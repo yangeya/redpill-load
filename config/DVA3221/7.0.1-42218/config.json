@@ -60,7 +60,7 @@
 			"Yet Another Jun’s Mod × DVA3221 v7.0.1-42218 (USB, Verbose)": {
 				"options": [
 				  "savedefault",
-				  "set root=(hd0,msdos1)",
+				  "set root=(hd0,2)",
 				  "echo Loading Linux...",
 				  "linux /bzImage @@@CMDLINE@@@",
 				  "echo Starting kernel with USB boot",
@@ -72,6 +72,24 @@
 				  "log_buf_len": "32M"
 				}
       },
+ 
+      "Yet Another Jun`s Mod x RedPill DS1621+ v7.0.1-42218 (SATA, Verbose)": {
+        "options": [
+          "savedefault",
+          "set root=(hd0,2)",
+          "echo Loading Linux...",
+          "linux /bzImage @@@CMDLINE@@@",
+          "echo Starting kernel with SATA boot",
+          "echo WARNING: SATA boot support on this platform is experimental!"
+        ],
+        "cmdline": {
+          "earlyprintk": null,
+          "loglevel": 15,
+          "synoboot_satadom": 2,
+          "log_buf_len": "32M"
+        }
+      },
+
             "RedPill DVA3221 v7.0.1-42218 Beta (USB, Verbose)": {
                 "options": [
                     "savedefault",
@@ -114,7 +132,6 @@
             "@@@COMMON@@@/iosched-trampoline.sh": "usr/sbin/modprobe"
         },
 		"bootp1_copy": {
-		  "@@@COMMON@@@/bzImage": "bzImage",
 		  "@@@PAT@@@/GRUB_VER": "GRUB_VER",
 		  "@@@COMMON@@@/EFI/boot/SynoBootLoader.conf": "EFI/BOOT/",
 		  "@@@COMMON@@@/EFI/boot/SynoBootLoader.efi": "EFI/BOOT/"
@@ -122,6 +139,7 @@
 		"bootp2_copy": {
 		  "@@@PAT@@@/GRUB_VER": "GRUB_VER",
 		  "@@@COMMON@@@/EFI": "EFI",
+		  "@@@COMMON@@@/bzImage": "bzImage",
 		  "@@@PAT@@@/grub_cksum.syno": "grub_cksum.syno",
 		  "@@@PAT@@@/rd.gz": "rd.gz",
 		  "@@@PAT@@@/zImage": "zImage"
