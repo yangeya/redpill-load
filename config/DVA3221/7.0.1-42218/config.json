@@ -1,7 +1,7 @@
 {
     "os": {
         "id": "dva3221_42218",
-        "pat_url": "https://global.synology.com/download/DSM/release/7.0.1/42218/DSM_DVA3221_42218.pat",
+        "pat_url": "https://cndl.synology.cn/download/DSM/release/7.0.1/42218/DSM_DVA3221_42218.pat",
         "sha256": "01f101d7b310c857e54b0177068fb7250ff722dc9fa2472b1a48607ba40897ee"
     },
 
@@ -27,28 +27,13 @@
         "ramdisk": [
             "@@@COMMON@@@/ramdisk-001-disable-root-pwd.patch",
       	    "@@@COMMON@@@/v7.0.1/ramdisk-002-init-script.patch",
-            "@@@COMMON@@@/v7.0.1/ramdisk-003-post-init-script.patch",
-	    "@@@COMMON@@@/ramdisk-004-network-hosts.patch"
+            "@@@COMMON@@@/v7.0.1/ramdisk-003-post-init-script.patch"
         ]
     },
     "synoinfo": {
-        "maxdisks": "24",
-		"support_bde_internal_10g": "no",
-		"support_disk_compatibility": "no",
-		"supportraidgroup": "no",
-		"support_syno_hybrid_raid": "yes",
-		"internalportcfg": "0xfffff",
-        "SasIdxMap": "0",
-        "esataportcfg": "0x00",
-        "rss_server": "http://example.com/null.xml",
-        "rss_server_ssl": "https://example.com/null.xml",
-        "small_info_path": "https://example.com/null",
-	"rss_server_v2": "https://example.com/autoupdate/v2/getList",
-	"security_version_server": "https://example.com/smallupdate",
-         "updateurl": "http://example.com/",
-	"update_server": "http://example.com/",
-	"update_server_ssl": "https//example.com/",
-        "myds_region_api_base_url": "https://example.com"
+        "support_bde_internal_10g": "no",
+        "support_disk_compatibility": "no"
+
     },
     "grub": {
         "template": "@@@COMMON@@@/grub-template.conf",
@@ -56,8 +41,6 @@
             "sn": "",
             "vid": "0x46f4",
             "pid": "0x0001",
-    	    "SataPortMap": "1", 
-            "DiskIdxMap": "0",
             "mac1": "",
             "netif_num": 4,
 
@@ -74,6 +57,21 @@
             "earlycon": "uart8250,io,0x3f8,115200n8"
         },
         "menu_entries": {
+			"Yet Another Jun’s Mod × DVA3221 v7.0.1-42218 (USB, Verbose)": {
+				"options": [
+				  "savedefault",
+				  "set root=(hd0,msdos1)",
+				  "echo Loading Linux...",
+				  "linux /bzImage @@@CMDLINE@@@",
+				  "echo Starting kernel with USB boot",
+				  "echo Thanks jumkey hard work"
+				],
+				"cmdline": {
+				  "earlyprintk": null,
+				  "loglevel": 15,
+				  "log_buf_len": "32M"
+				}
+      },
             "RedPill DVA3221 v7.0.1-42218 Beta (USB, Verbose)": {
                 "options": [
                     "savedefault",
@@ -116,6 +114,7 @@
             "@@@COMMON@@@/iosched-trampoline.sh": "usr/sbin/modprobe"
         },
 		"bootp1_copy": {
+		  "@@@COMMON@@@/bzImage": "bzImage",
 		  "@@@PAT@@@/GRUB_VER": "GRUB_VER",
 		  "@@@COMMON@@@/EFI/boot/SynoBootLoader.conf": "EFI/BOOT/",
 		  "@@@COMMON@@@/EFI/boot/SynoBootLoader.efi": "EFI/BOOT/"
