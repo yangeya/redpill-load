@@ -10,7 +10,7 @@ cd $(dirname $0)
 mkdir /temp1
 mkdir /temp2
 # TODO sdb?
-usbfs=$(fdisk -l /dev/sd* | grep -E '128 MB|160 MB' | awk '{print $2}' | awk -F ':' '{print $1}')
+usbfs=$(fdisk -l /dev/sd* | grep -E '128 MB|160 MB|1 Gib' | awk '{print $2}' | awk -F ':' '{print $1}')
 wait_time=30
 time_counter=0
 while [ "${usbfs}" = "" ] && [ $time_counter -lt $wait_time ]; do
