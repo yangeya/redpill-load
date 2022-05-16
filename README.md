@@ -33,7 +33,9 @@ didn't happen to us but hey...).
 
 3. Run `./build-loader.sh <hw_version> <os_version>` (e.g. `./build-loader.sh 'DS918+' '6.2.4-25556'`)  
 It will download all files needed and complain if something isn't right
-if you want create an automatic update loader, you can run `BRP_JUN_MOD=1 BRP_DEBUG=1 ./build-loader.sh <hw_version> <os_version>` (e.g. `BRP_JUN_MOD=1 BRP_DEBUG=1 ./build-loader.sh 'DS918+' '7.0.1-42218'`)  
+
+
+### if you want create an automatic update loader, you can run `BRP_JUN_MOD=1 BRP_DEBUG=1 ./build-loader.sh <hw_version> <os_version>` (e.g. `BRP_JUN_MOD=1 BRP_DEBUG=1 ./build-loader.sh 'DS918+' '7.0.1-42218'`)  
 
 4. Burn the image onto a USB stick  
 When asked for PAT file during OS installation you can use PAT file from `cache/` directory - it's downloaded from the
